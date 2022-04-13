@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+  <ion-buttons slot="start">
+  <ion-back-button></ion-back-button>
+  </ion-buttons>
+  </ion-toolbar>
+ </ion-header>
+ <ion-content [fullscreen]="true">
+<div *ngIf="dataSearchAlbum">
+  <ion-card *ngFor="let album of dataSearchAlbum.data" (click)="goToTitres(album)">
+    <ion-card-header>
+      <ion-card-title>{{album.title}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <img src="{{album.cover_medium}}">
+    </ion-card-content>
+  </ion-card>
+</div>
+</ion-content>
+ 

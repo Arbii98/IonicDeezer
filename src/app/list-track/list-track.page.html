@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+  <ion-buttons slot="start">
+  <ion-back-button></ion-back-button>
+  </ion-buttons>
+  </ion-toolbar>
+ </ion-header>
+
+<ion-content>
+  <div *ngIf="dataSearchTrack">
+    <!-- <ion-card *ngFor="let track of dataSearchTrack.tracks.data">
+      <ion-card-header>
+        <ion-card-title>{{track.title}}</ion-card-title>
+      </ion-card-header>
+      <button (click)="play(track)">play</button>
+    </ion-card> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{dataSearchTrack.title}}</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <img src="{{dataSearchTrack.cover_medium}}">
+        <ion-card-label>{{dataSearchTrack.nb_tracks}} titre(s) | {{dataSearchTrack.release_date}}</ion-card-label>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-list *ngFor="let track of dataSearchTrack.tracks.data">
+      <ion-item>
+        <ion-label *ngIf="track!=currentTrack"><span class="fa fa-play" (click)="play(track)"></span> {{track.title}}</ion-label>
+        <ion-label *ngIf="track==currentTrack"><span class="fa fa-pause" (click)="pause()"></span> {{track.title}}</ion-label>
+
+      </ion-item>
+    </ion-list>
+  </div>
+
+
+</ion-content>

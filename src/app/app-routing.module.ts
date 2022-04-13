@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
@@ -10,6 +11,22 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'list-album',
+    loadChildren: () => import('./list-album/list-album.module').then( m => m.ListAlbumPageModule)
+  },
+  {
+    path: 'list-album/:id',
+    loadChildren: () => import('./list-album/list-album.module').then( m => m.ListAlbumPageModule)
+  },
+  {
+    path: 'list-track',
+    loadChildren: () => import('./list-track/list-track.module').then( m => m.ListTrackPageModule)
+  },
+  {
+    path: 'list-track/:id',
+    loadChildren: () => import('./list-track/list-track.module').then( m => m.ListTrackPageModule)
   },
 ];
 

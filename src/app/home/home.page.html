@@ -13,8 +13,23 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <ion-toolbar>
+    <ion-searchbar type="text" placeholder="Artiste" (keyup.enter)="onSearchArtist($event)"></ion-searchbar>
+   </ion-toolbar>
+   
+   <div  *ngIf="dataSearchArtists">
+    <ion-card *ngFor="let artist of dataSearchArtists.data" (click)="goToAlbum(artist)">
+      <ion-card-header>
+        <ion-card-title>{{artist.name}}</ion-card-title>
+        <ion-card-subtitle>{{artist.nb_fan}} fans</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <img src="{{artist.picture_medium}}">
+      </ion-card-content>
+    </ion-card>
   </div>
+
+
+  
 </ion-content>
